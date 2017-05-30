@@ -1,0 +1,24 @@
+{
+  "name": "nanodegree-optimisation-project",
+  "version": "1.0.0",
+  "description": "Website optimisation project for udacity",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leogovan/udacity-optimisation.git"
+  },
+  "author": "Leo Govan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/leogovan/udacity-optimisation/issues"
+  },
+  "homepage": "https://github.com/leogovan/udacity-optimisation#readme",
+  "devDependencies": {
+    "grunt": "^1.0.1",
+    "grunt-contrib-cssmin": "^2.2.0",
+    "grunt-pagespeed": "^2.0.1"
+  }
+}
