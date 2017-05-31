@@ -26,12 +26,14 @@ module.exports = function(grunt) {
 			}
 		}
 	}); // end of initConfig
+
+	// Page Speed Insights
+	grunt.loadNpmTasks('grunt-pagespeed');
+
+
+	// 'grunt speed' in cmd line to run
+	grunt.registerTask('speed', ['pagespeed']);
+
 }; // end of module.exports
 
 
-// Page Speed Insights
-grunt.loadNpmTasks('grunt-pagespeed');
-
-
-// 'grunt speed' in cmd line to run
-grunt.registerTask('speed', ['pagespeed']);
