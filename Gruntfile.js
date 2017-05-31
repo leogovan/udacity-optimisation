@@ -6,22 +6,22 @@ module.exports = function(grunt) {
 		pagespeed: {
 			options: {
 				nokey: true,
-				url: "https://developers.google.com"
+				url: "https://leogovan.github.io/udacity-optimisation/"
 			},
 			prod: {
 				options: {
-					url: "https://developers.google.com/speed/docs/insights/v1/getting_started",
+					url: "https://leogovan.github.io/udacity-optimisation/",
 					locale: "en_GB",
 					strategy: "desktop",
-					threshold: 80
+					threshold: 90
 				}
 			},
 			paths: {
 				options: {
-					paths: ["/speed/docs/insights/v1/getting_started", "/speed/docs/about"],
+					paths: ["https://leogovan.github.io/udacity-optimisation/"], // can be a list of array elements
 					locale: "en_GB",
-					strategy: "desktop",
-					threshold: 80
+					strategy: "mobile",
+					threshold: 90
 				}
 			}
 		}
