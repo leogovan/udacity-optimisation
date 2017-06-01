@@ -20,6 +20,7 @@
     "grunt": "^1.0.1",
     "grunt-contrib-cssmin": "^2.2.0",
     "grunt-pagespeed": "^2.0.1",
-    "grunt-respimg": "^1.1.0"
+    "grunt-respimg": "^1.1.0",
+    "grunt-responsive-images": "^1.10.1"
   }
 }

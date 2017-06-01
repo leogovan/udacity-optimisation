@@ -40,7 +40,28 @@ module.exports = function(grunt) {
 					ext: '.min.css'
 				}]
 			}
-		}
+		},
+
+		// ------- Responsive Images ------- //
+
+		responsive_images: {
+			dev: {
+				options: {
+					engine: 'im',
+					sizes: [{
+						name: 'small',
+						width: 100,
+						quality: 100
+					}]
+				},
+				files: [{
+					expand: true,
+					src: ['images/*.{jpg,gif,png}'],
+					cwd: 'views/',
+					dest: 'views/'
+				}]
+			}
+		},
 
 	}); // end of initConfig
 
@@ -53,6 +74,9 @@ module.exports = function(grunt) {
 	// CSS minify
 	grunt.loadNpmTasks('grunt-contrib-cssmin');
 
+	// Responsive Images
+	grunt.loadNpmTasks('grunt-responsive-images');
+
 
 	// --------- Register/Run Tasks ---------- //
 
@@ -60,7 +84,10 @@ module.exports = function(grunt) {
 	grunt.registerTask('speed', ['pagespeed']);
 
 	// css grunt tasks
-	grunt.registerTask('default', ['cssmin']);
+	grunt.registerTask('default', ['cssmin','responsive_images']);
+
+	// 'grunt img' in cmd line to run
+	//grunt.registerTask('img', []);
 
 }; // end of module.exports
 
