@@ -29,11 +29,14 @@ module.exports = function(grunt) {
 
 	// Page Speed Insights
 	grunt.loadNpmTasks('grunt-pagespeed');
+	grunt.loadNpmTasks('grunt-contrib-cssmin');
 
 
 	// 'grunt speed' in cmd line to run
 	grunt.registerTask('speed', ['pagespeed']);
 
+	// css grunt tasks
+	grunt.registerTask('default', ['pagespeed']);
 }; // end of module.exports
 
 
