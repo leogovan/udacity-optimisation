@@ -521,9 +521,14 @@ function updatePositions() {
 window.addEventListener('scroll', updatePositions);
 
 // Generates the sliding pizzas when the page loads.
+// ----- Optimised Here ------ //
+// 1. Reduce number of pizzas generated from 200 to 30
+// 2. Take the DOM accessing out of the loop as per https://www.w3schools.com/js/js_performance.asp
+// 3. Change out querySelector for getElementById as more performant: https://jsperf.com/getelementbyid-vs-queryselector
 document.addEventListener('DOMContentLoaded', function() {
   var cols = 8;
   var s = 256;
+  var pizzaTheHut = document.getElementById("movingPizzas1");
   for (var i = 0; i < 30; i++) {
     var elem = document.createElement('img');
     elem.className = 'mover';
@@ -532,7 +537,7 @@ document.addEventListener('DOMContentLoaded', function() {
     elem.style.width = "73.333px";
     elem.basicLeft = (i % cols) * s;
     elem.style.top = (Math.floor(i / cols) * s) + 'px';
-    document.querySelector("#movingPizzas1").appendChild(elem);
+    pizzaTheHut.appendChild(elem);
   }
   updatePositions();
 });
