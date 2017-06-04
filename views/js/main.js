@@ -409,13 +409,13 @@ var resizePizzas = function(size) {
   function changeSliderLabel(size) {
     switch(size) {
       case "1":
-        document.getElementsByID("pizzaSize").innerHTML = "Small";
+        document.querySelector("#pizzaSize").innerHTML = "Small";
         return;
       case "2":
-        document.getElementsByID("pizzaSize").innerHTML = "Medium";
+        document.querySelector("#pizzaSize").innerHTML = "Medium";
         return;
       case "3":
-        document.getElementsByID("pizzaSize").innerHTML = "Large";
+        document.querySelector("#pizzaSize").innerHTML = "Large";
         return;
       default:
         console.log("bug in changeSliderLabel");
@@ -505,14 +505,17 @@ function logAverageFrame(times) {   // times is the array of User Timing measure
 // Moves the sliding background pizzas based on scroll position
 // ----- Optimised Here ----- //
 // 1. Change out querySelectorAll for getElementsByClassName as more performant: https://jsperf.com/getelementsbyclassname-vs-queryselectorall/15
+// 2. Took document.body.scrollTop out of the loop and made it a variable to be accessed within it instead
 
 function updatePositions() {
   frame++;
   window.performance.mark("mark_start_frame");
 
   var items = document.getElementsByClassName('mover');
+  var scrollTopPosition = document.body.scrollTop;
   for (var i = 0; i < items.length; i++) {
-    var phase = Math.sin((document.body.scrollTop / 1250) + (i % 5));
+    var phase = Math.sin((scrollTopPosition / 1250) + (i % 5));
+    console.log("phase = " + phase);
     items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
   }
 
