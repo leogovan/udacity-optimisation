@@ -455,9 +455,12 @@ var resizePizzas = function(size) {
   // 1. Change out querySelectorAll for getElementsByClassName as more performant: https://jsperf.com/getelementsbyclassname-vs-queryselectorall/15
 
   function changePizzaSizes(size) {
+    console.log("// ------------- Run changePizzaSizes ------------- //");
     for (var i = 0; i < document.getElementsByClassName("randomPizzaContainer").length; i++) {
       var dx = determineDx(document.getElementsByClassName("randomPizzaContainer")[i], size);
+      console.log("dx = " + dx);
       var newwidth = (document.getElementsByClassName("randomPizzaContainer")[i].offsetWidth + dx) + 'px';
+      console.log("newwidth = " + newwidth);
       document.getElementsByClassName("randomPizzaContainer")[i].style.width = newwidth;
     }
   }
@@ -515,7 +518,6 @@ function updatePositions() {
   var scrollTopPosition = document.body.scrollTop;
   for (var i = 0; i < items.length; i++) {
     var phase = Math.sin((scrollTopPosition / 1250) + (i % 5));
-    console.log("phase = " + phase);
     items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
   }
 
