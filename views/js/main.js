@@ -453,17 +453,30 @@ var resizePizzas = function(size) {
   // Iterates through pizza elements on the page and changes their widths
   // ----- Optimised Here ----- //
   // 1. Change out querySelectorAll for getElementsByClassName as more performant: https://jsperf.com/getelementsbyclassname-vs-queryselectorall/15
+  // 2. Used class solution https://classroom.udacity.com/nanodegrees/nd001/parts/e87c34bf-a9c0-415f-b007-c2c2d7eead73/modules/273584856175461/lessons/4147498575/concepts/41542085800923 here
 
   function changePizzaSizes(size) {
-    console.log("// ------------- Run changePizzaSizes ------------- //");
-    for (var i = 0; i < document.getElementsByClassName("randomPizzaContainer").length; i++) {
-      var dx = determineDx(document.getElementsByClassName("randomPizzaContainer")[i], size);
-      console.log("dx = " + dx);
-      var newwidth = (document.getElementsByClassName("randomPizzaContainer")[i].offsetWidth + dx) + 'px';
-      console.log("newwidth = " + newwidth);
-      document.getElementsByClassName("randomPizzaContainer")[i].style.width = newwidth;
+    switch(size) {
+        case "1":
+            newWidth = 25;
+            break;
+        case "2":
+            newWidth = 33.3;
+            break;
+        case "3":
+            newWidth = 50;
+            break;
+        default:
     }
-  }
+
+    var randomPizzas = document.getElementsByClassName("randomPizzaContainer");
+
+    for (var i = 0; i < randomPizzas.length; i++) {
+      console.log("randomPizzas.length = " + randomPizzas.length);
+        randomPizzas[i].style.width = newWidth + "%";
+        console.log("newWidth = " + newWidth + "%");
+    }
+}
 
   changePizzaSizes(size);
 
